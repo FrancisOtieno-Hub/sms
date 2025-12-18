@@ -1,17 +1,25 @@
 import { supabase } from "./supabase.js";
 
-window.login = async () => {
+const form = document.getElementById("loginForm");
+const errorEl = document.getElementById("loginError");
+
+form.onsubmit = async (e) => {
+  e.preventDefault();
+
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const { error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password
   });
 
   if (error) {
-    alert(error.message);
-  } else {
-    window.location.href = "dashboard.html";
+    errorEl.textContent = error.message;
+    return;
   }
+
+  // Redirect to dashboard on success
+  window.location.href = "dashboard.html";
 };
+
