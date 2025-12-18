@@ -4,12 +4,10 @@
   <meta charset="UTF-8">
   <title>Dashboard | School SMS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Top Bar -->
   <header class="topbar">
     <h1>Dashboard</h1>
     <nav>
@@ -18,17 +16,15 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
   <main class="container">
 
-    <!-- Student Registration -->
+    <!-- Add Student -->
     <section class="card">
       <h2>Add Student</h2>
-
       <form id="studentForm">
-        <input id="name" placeholder="Student Full Name" required>
-        <input id="adm" placeholder="Admission Number" required>
-        <input id="class" placeholder="Class (e.g. Grade 6)" required>
+        <input id="name" placeholder="Full Name" required>
+        <input id="adm" placeholder="Admission No" required>
+        <input id="class" placeholder="Class" required>
         <button type="submit">Add Student</button>
       </form>
     </section>
@@ -36,7 +32,18 @@
     <!-- Student List -->
     <section class="card">
       <h2>Registered Students</h2>
-      <ul id="studentList"></ul>
+      <input type="text" id="searchStudent" placeholder="Search by name or admission no...">
+      <table id="studentTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Admission No</th>
+            <th>Class</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </section>
 
   </main>
@@ -50,7 +57,5 @@
       window.location.href = "login.html";
     };
   </script>
-
 </body>
 </html>
-
