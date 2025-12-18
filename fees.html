@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fees | School SMS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <h2>Fee Payments</h2>
+    <a href="dashboard.html" class="btn">← Back to Dashboard</a>
+  </header>
+
+  <main>
+    <form id="feeForm">
+      <input id="studentId" placeholder="Student ID" required>
+      <input id="amount" type="number" placeholder="Amount Paid" required>
+      <input id="term" placeholder="Term (e.g. Term 1 2025)" required>
+      <button type="submit">Record Payment</button>
+    </form>
+
+    <ul id="feeList"></ul>
+  </main>
+
+  <script type="module" src="js/fees.js"></script>
+
+</body>
+</html>
