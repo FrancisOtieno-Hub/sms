@@ -4,27 +4,50 @@
   <meta charset="UTF-8">
   <title>Fees | School SMS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <header>
-    <h2>Fee Payments</h2>
-    <a href="dashboard.html" class="btn">← Back to Dashboard</a>
+  <header class="topbar">
+    <h1>Fee Payments</h1>
+    <nav>
+      <a href="dashboard.html" class="btn small">← Back to Dashboard</a>
+    </nav>
   </header>
 
-  <main>
-    <form id="feeForm">
-      <select id="studentId" required>
-        <option value="">Select Student</option>
-      </select>
-      <input id="amount" type="number" placeholder="Amount Paid" required>
-      <input id="term" placeholder="Term (e.g. Term 1 2025)" required>
-      <button type="submit">Record Payment</button>
-    </form>
+  <main class="container">
 
-    <ul id="feeList"></ul>
+    <!-- Add Fee -->
+    <section class="card">
+      <h2>Record Fee Payment</h2>
+      <form id="feeForm">
+        <select id="studentId" required>
+          <option value="">Select Student</option>
+        </select>
+        <input id="amount" type="number" placeholder="Amount Paid" required>
+        <input id="term" placeholder="Term (e.g. Term 1 2025)" required>
+        <button type="submit">Record Payment</button>
+      </form>
+    </section>
+
+    <!-- Fee History -->
+    <section class="card">
+      <h2>Fee History</h2>
+      <input type="text" id="searchFee" placeholder="Search by student or term...">
+      <table id="feeTable">
+        <thead>
+          <tr>
+            <th>Student</th>
+            <th>Amount</th>
+            <th>Term</th>
+            <th>Paid At</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
   </main>
 
   <script type="module" src="js/fees.js"></script>
