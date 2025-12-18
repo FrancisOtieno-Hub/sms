@@ -67,7 +67,7 @@ school-sms/
 ### 1️. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/school-sms.git
+git clone https://github.com/FrancisOtieno-Hub/sms.git
 cd school-sms
 ```
 
