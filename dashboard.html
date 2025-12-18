@@ -1,12 +1,56 @@
-<h1>Dashboard</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | School SMS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<form id="studentForm">
-  <input id="name" placeholder="Student Name">
-  <input id="adm" placeholder="Admission No">
-  <input id="class" placeholder="Class">
-  <button>Add Student</button>
-</form>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-<ul id="studentList"></ul>
+  <!-- Top Bar -->
+  <header class="topbar">
+    <h1>Dashboard</h1>
+    <nav>
+      <a href="fees.html" class="btn small">Fees</a>
+      <button id="logoutBtn" class="btn danger small">Logout</button>
+    </nav>
+  </header>
 
-<script type="module" src="js/students.js"></script>
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- Student Registration -->
+    <section class="card">
+      <h2>Add Student</h2>
+
+      <form id="studentForm">
+        <input id="name" placeholder="Student Full Name" required>
+        <input id="adm" placeholder="Admission Number" required>
+        <input id="class" placeholder="Class (e.g. Grade 6)" required>
+        <button type="submit">Add Student</button>
+      </form>
+    </section>
+
+    <!-- Student List -->
+    <section class="card">
+      <h2>Registered Students</h2>
+      <ul id="studentList"></ul>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/students.js"></script>
+  <script type="module">
+    import { supabase } from "./js/supabase.js";
+
+    document.getElementById("logoutBtn").onclick = async () => {
+      await supabase.auth.signOut();
+      window.location.href = "login.html";
+    };
+  </script>
+
+</body>
+</html>
+
