@@ -17,7 +17,7 @@
 
   <main class="container">
 
-    <!-- Add Fee -->
+    <!-- Record Fee Payment -->
     <section class="card">
       <h2>Record Fee Payment</h2>
       <form id="feeForm">
@@ -25,21 +25,51 @@
           <option value="">Select Student</option>
         </select>
         <input id="amount" type="number" placeholder="Amount Paid" required>
-        <input id="term" placeholder="Term (e.g. Term 1 2025)" required>
+        <input id="term" placeholder="Term (e.g. Term 1 2026)" required>
+        <select id="paymentMethod" required>
+          <option value="">Payment Method</option>
+          <option value="Cash">Cash</option>
+          <option value="Mpesa">Mpesa</option>
+          <option value="Bank Transfer">Bank Transfer</option>
+        </select>
+        <select id="status" required>
+          <option value="">Payment Status</option>
+          <option value="Paid">Paid</option>
+          <option value="Pending">Pending</option>
+          <option value="Partially Paid">Partially Paid</option>
+        </select>
+        <input id="comments" placeholder="Comments (optional)">
         <button type="submit">Record Payment</button>
       </form>
+    </section>
+
+    <!-- Bulk Fee Upload -->
+    <section class="card">
+      <h2>Bulk Fee Upload</h2>
+      <input type="file" id="csvFeeFile" accept=".csv">
+      <button id="uploadFeeBtn" class="btn">Upload CSV</button>
+      <p>CSV format: student_adm_no,amount,term,payment_method,status,comments</p>
     </section>
 
     <!-- Fee History -->
     <section class="card">
       <h2>Fee History</h2>
-      <input type="text" id="searchFee" placeholder="Search by student or term...">
+      <input type="text" id="searchFee" placeholder="Search by student, receipt, or term...">
+      <select id="filterStatus">
+        <option value="">All Status</option>
+        <option value="Paid">Paid</option>
+        <option value="Pending">Pending</option>
+        <option value="Partially Paid">Partially Paid</option>
+      </select>
       <table id="feeTable">
         <thead>
           <tr>
+            <th>Receipt</th>
             <th>Student</th>
             <th>Amount</th>
             <th>Term</th>
+            <th>Payment Method</th>
+            <th>Status</th>
             <th>Paid At</th>
             <th>Actions</th>
           </tr>
@@ -51,6 +81,5 @@
   </main>
 
   <script type="module" src="js/fees.js"></script>
-
 </body>
 </html>
