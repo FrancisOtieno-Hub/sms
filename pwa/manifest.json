@@ -1,6 +1,6 @@
 {
   "name": "School Management System",
-  "short_name": "School SMS",
+  "short_name": "SMS",
   "description": "A simple, offline-ready school management system for students and fees.",
   "start_url": "/index.html",
   "scope": "/",
